@@ -21,8 +21,8 @@ run mkdir /srv/openalpr/src/build
 workdir /srv/openalpr/src/build
 
 # Setup the compile environment
-run cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_INSTALL_SYSCONFDIR:PATH=/etc .. && \
-    make -j2 && \
+run cmake -D WITH_GPU_DETECTOR=ON -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_INSTALL_SYSCONFDIR:PATH=/etc .. && \
+    make -j4 && \
     make install
 
 workdir /data
